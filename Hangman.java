@@ -2,7 +2,11 @@ public class Hangman {
     private Player user;
 
     public Hangman(Player user) {
-        this.user = user;
+        if (user instanceof VipPlayer) {
+            this.user = (VipPlayer) user;
+        } else {
+            this.user = (RegularPlayer) user;
+        }
     }
 
     public void startGame() {

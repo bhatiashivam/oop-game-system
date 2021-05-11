@@ -1,6 +1,20 @@
 import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Menu {
+
+    static void displayLeaderboard() {
+        // read the file
+        try (Scanner s = new Scanner(new File("leaderboard.txt"))) {
+            while (s.hasNextLine())
+                System.out.println(s.nextLine());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static int getChoice(Scanner input) {
         System.out.println("Please choose an option:");
         System.out.println("1 New Player");
@@ -30,8 +44,9 @@ public class Menu {
             int choice = getChoice(input);
 
             if (choice == 2) {
-                System.out.println("***** Leaderboard ******");
-                // print leaderboard here
+                System.out.println("************* Leaderboard *************");
+                displayLeaderboard();
+                System.out.println("***************************************");
                 break;
             } else {
                 System.out.println("Please enter player name:");

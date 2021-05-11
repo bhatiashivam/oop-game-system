@@ -2,12 +2,13 @@ import java.util.*;
 
 public class NumberGuess {
     private Player user;
-    // private VipPlayer vp = null;
-    // private RegularPlayer rp = null;
 
     public NumberGuess(Player user) {
-
-        // this.user = user;
+        if (user instanceof VipPlayer) {
+            this.user = (VipPlayer) user;
+        } else {
+            this.user = (RegularPlayer) user;
+        }
     }
 
     public void startGame() {

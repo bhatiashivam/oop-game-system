@@ -4,7 +4,11 @@ public class Puzzle {
     private Player user;
 
     public Puzzle(Player user) {
-        this.user = user;
+        if (user instanceof VipPlayer) {
+            this.user = (VipPlayer) user;
+        } else {
+            this.user = (RegularPlayer) user;
+        }
     }
 
     public void startGame() {
@@ -24,8 +28,8 @@ public class Puzzle {
 
         answer = in.next().toUpperCase();
 
-        if (answer == "SNAIL") {
-            totalScore++;
+        if (answer.equals("SNAIL")) {
+            totalScore += 10;
             System.out.println("That's correct!. 10 points awarded.");
         } else {
             System.out.println("That's incorrect");
@@ -39,8 +43,8 @@ public class Puzzle {
 
         answer = in.next().toUpperCase();
 
-        if (answer == "THURSDAY") {
-            totalScore++;
+        if (answer.equals("THURSDAY")) {
+            totalScore += 10;
             System.out.println("That's correct!. 10 points awarded.");
         } else {
             System.out.println("That's incorrect");
@@ -54,8 +58,8 @@ public class Puzzle {
 
         answer = in.next().toUpperCase();
 
-        if (answer == "MATCH") {
-            totalScore++;
+        if (answer.equals("MATCH")) {
+            totalScore += 10;
             System.out.println("That's correct!. 10 points awarded.");
         } else {
             System.out.println("That's incorrect");
