@@ -5,12 +5,22 @@ import java.io.FileNotFoundException;
 public class Menu {
 
     static void displayLeaderboard() {
+        String stats = "";
         // read the file
         try (Scanner s = new Scanner(new File("leaderboard.txt"))) {
             while (s.hasNextLine())
-                System.out.println(s.nextLine());
+                // System.out.println(s.nextLine());
+                stats += s.nextLine();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        }
+
+        String[] player_scores = stats.split(",");
+
+        Arrays.sort(player_scores, Collections.reverseOrder());
+
+        for (String element : player_scores) {
+            System.out.println(element);
         }
 
     }
@@ -50,7 +60,7 @@ public class Menu {
                 break;
             } else {
                 System.out.println("Please enter player name:");
-                String playerName = input.next();
+                String playerName = input.next().toUpperCase();
 
                 System.out.println("Please enter player status:");
                 System.out.println("A VIP is player is awarded double the points.");

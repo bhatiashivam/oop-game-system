@@ -11,12 +11,7 @@ public class VipPlayer extends Player {
 
     // get player status
     public String getStatus() {
-        return "(VIP)";
-    }
-
-    // get player status
-    public String getName() {
-        return this.getName();
+        return "(VIP),";
     }
 
     // increase or decrease score

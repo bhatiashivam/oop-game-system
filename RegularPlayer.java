@@ -11,7 +11,7 @@ public class RegularPlayer extends Player {
 
     // get player status
     public String getStatus() {
-        return "(Regular)";
+        return "(Regular),";
     }
 
     // increase or decrease score
