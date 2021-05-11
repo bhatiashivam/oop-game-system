@@ -1,3 +1,6 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class RegularPlayer extends Player {
     private int score = 0;
 
@@ -8,7 +11,7 @@ public class RegularPlayer extends Player {
 
     // get player status
     public String getStatus() {
-        return "Regular";
+        return "(Regular)";
     }
 
     // increase or decrease score
@@ -23,9 +26,15 @@ public class RegularPlayer extends Player {
 
     // update leaderboard
     public void updateLeaderboard() {
-        System.out.println("Total points: " + getScore());
-        System.out.println("Leaderboard updated!");
-    }
 
-    // add toString
+        String text = getScore() + " -> " + getName() + " " + getStatus();
+
+        try {
+            FileWriter fw = new FileWriter("leaderboard.txt", true);
+            fw.write(text);
+            fw.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
 }

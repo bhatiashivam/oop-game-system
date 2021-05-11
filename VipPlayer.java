@@ -1,3 +1,6 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class VipPlayer extends Player {
     int score = 0;
 
@@ -8,7 +11,12 @@ public class VipPlayer extends Player {
 
     // get player status
     public String getStatus() {
-        return "VIP";
+        return "(VIP)";
+    }
+
+    // get player status
+    public String getName() {
+        return this.getName();
     }
 
     // increase or decrease score
@@ -24,7 +32,15 @@ public class VipPlayer extends Player {
 
     // update leaderboard
     public void updateLeaderboard() {
-        System.out.println("Total points: " + getScore());
-        System.out.println("Leaderboard updated!");
+
+        String text = getScore() + " -> " + getName() + " " + getStatus();
+
+        try {
+            FileWriter fw = new FileWriter("leaderboard.txt", true);
+            fw.write(text);
+            fw.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 }

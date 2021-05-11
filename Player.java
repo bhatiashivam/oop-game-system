@@ -8,4 +8,9 @@ public abstract class Player {
 
     public abstract void updateScore(int score);
     public abstract void updateLeaderboard();
+
+    // get Player name
+    public String getName(){
+        return this.name;
+    }
 }
