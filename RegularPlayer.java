@@ -1,5 +1,5 @@
 public class RegularPlayer extends Player {
-    int score = 0;
+    private int score = 0;
 
     public RegularPlayer(String name) {
         super(name);
@@ -26,4 +26,6 @@ public class RegularPlayer extends Player {
         System.out.println("Total points: " + getScore());
         System.out.println("Leaderboard updated!");
     }
+
+    // add toString
 }

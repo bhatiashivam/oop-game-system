@@ -29,8 +29,6 @@ public class Menu {
         while (true) {
             int choice = getChoice(input);
 
-            System.out.println(choice);
-
             if (choice == 2) {
                 System.out.println("***** Leaderboard ******");
                 // print leaderboard here
@@ -46,7 +44,7 @@ public class Menu {
 
                 int playerStatus = input.nextInt();
 
-                Player user = new Player(playerName, playerStatus);
+                Player user = (playerStatus == 1) ? new RegularPlayer(playerName) : new VipPlayer(playerName);
 
                 while (true) {
                     System.out.println("Hello " + playerName + ". Please choose a game, or -1 to quit:");

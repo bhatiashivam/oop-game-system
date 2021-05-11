@@ -14,7 +14,7 @@ public class VipPlayer extends Player {
     // increase or decrease score
     // every VIP is awarded double the score
     public void updateScore(int score) {
-        this.score += 2 * score;
+        this.score += (2 * score);
     }
 
     // getScore
