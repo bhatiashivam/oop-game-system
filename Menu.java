@@ -9,7 +9,6 @@ public class Menu {
         // read the file
         try (Scanner s = new Scanner(new File("leaderboard.txt"))) {
             while (s.hasNextLine())
-                // System.out.println(s.nextLine());
                 stats += s.nextLine();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -74,7 +73,7 @@ public class Menu {
                 while (true) {
                     System.out.println("Hello " + playerName + ". Please choose a game, or -1 to quit:");
                     System.out.println("1 Number Guess");
-                    System.out.println("2 Hangman");
+                    System.out.println("2 Coin Flip");
                     System.out.println("3 Puzzle");
 
                     int gameChoice = input.nextInt();
@@ -91,7 +90,7 @@ public class Menu {
                     } else if (gameChoice == 2) {
                         System.out.println("Let's play Hangman game:");
 
-                        Hangman hangmanGame = new Hangman(user);
+                        Coinflip hangmanGame = new Coinflip(user);
                         hangmanGame.startGame();
                     } else if (gameChoice == 3) {
                         System.out.println("Let's play Puzzle game:");
